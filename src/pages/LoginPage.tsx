@@ -87,7 +87,7 @@ function LoginPage() {
                   <Input
                     type="text"
                     {...register("email")}
-                    className="text-[#131B2E] text-[15px]"
+                    className="text-[#131B2E] bg-[#F2F3FF] text-[15px] h-10"
                   />
                   <div className="h-5">
                     {formState.errors.email && (
@@ -109,7 +109,7 @@ function LoginPage() {
                   <Input
                     type="password"
                     {...register("password")}
-                    className="text-[#131B2E]"
+                    className="text-[#131B2E] bg-[#F2F3FF] text-[15px] h-10"
                   />
                   <div className="h-5">
                     {formState.errors.password && (
