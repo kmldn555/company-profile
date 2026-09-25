@@ -1,6 +1,7 @@
 function Footer() {
   return (
-    <div className="container h-full mx-auto justify-between items-center pt-12 pb-12 px-6 bg-[#283044]">
+    <div className="bg-[#283044]">
+      <div className="container h-full mx-auto justify-between items-center pt-12 pb-12 px-6 ">
       {/* Main Container */}
       <img src="/LogoBgBlack.png" alt="LogoBgBlack" className="h-12.5 w-auto" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -68,6 +69,8 @@ function Footer() {
         </div>
       </div>
     </div>
+    </div>
+    
   );
 }
 

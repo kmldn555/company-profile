@@ -1,4 +1,5 @@
 import Footer from "@/components/Footer";
+import Loading from "@/components/loading/Loading";
 import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import { axiosInstance } from "@/lib/axios";
@@ -31,8 +32,10 @@ function BlogDetailPage() {
 
   if (isLoading) {
     return (
-      <div>
-        <p>Loading..</p>
+      <div className="container h-full mx-auto justify-between items-center px-6 pb-12 pt-4">
+        <div className="flex justify-center items-center h-100">
+          <Loading />
+        </div>
       </div>
     );
   }
@@ -47,10 +50,12 @@ function BlogDetailPage() {
         <div className="pt-15 md:pt-20">
           {/* Header */}
           <div className="container h-full mx-auto justify-between items-center px-6 py-12 bg-[#F2F3FF]">
-            <p>Blog Not Found</p>
+            <p className="text-[20px] md:text-[40px] ">Blog Not Found</p>
 
             <Link to="/blog">
-              <Button>Go to Blogpage</Button>
+              <Button className="bg-[#2563EB] text-white hover:text-white hover:bg-blue-400">
+                Go to Blogpage
+              </Button>
             </Link>
           </div>
           <Footer />
@@ -78,7 +83,7 @@ function BlogDetailPage() {
                 className="h-80 w-full object-cover rounded-sm"
               />
               <div className="bg-white flex text-justify py-4 px-4 mt-4 rounded-sm shadow-sm/30">
-                   {blog.content}
+                {blog.content}
               </div>
               <div className="bg-white flex text-justify py-1 px-4 mt-4 rounded-sm shadow-sm/30 w-fit font-bold text-[#004AC6]">
                 #{blog.category}
