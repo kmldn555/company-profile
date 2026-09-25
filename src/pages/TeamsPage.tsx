@@ -1,5 +1,6 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import axios from "axios";
 import { useEffect, useState } from "react";
 type User = {
   name: {
@@ -12,19 +13,28 @@ type User = {
   };
 };
 
+type UsersResponse = {
+  results: User[];
+};
+
 function TeamsPage() {
   const [users, setUsers] = useState<User[]>([]);
 
-  useEffect(() => {
-    fetch("https://randomuser.me/api/?results=5")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setUsers(data.results);
-      });
+  const getUsers = async () => {
+    try {
+      const { data } = await axios.get<UsersResponse>(
+        "https://randomuser.me/api/?results=5",
+      );
+      setUsers(data.results);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+    useEffect(() => {
+    getUsers();
   }, []);
 
-  console.log(users);
 
   return (
     <div className="bg-white">
